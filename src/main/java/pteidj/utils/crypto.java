@@ -14,7 +14,16 @@ import java.security.spec.X509EncodedKeySpec;
  */
 public class Crypto {
 
-    public void Verify(String toverify, String result){
+    public static void main (String[] args){
+        String str = "hello";
+        Crypto crypto = new Crypto();
+        byte[] ciph = crypto.Sign("hello");
+        crypto.Verify(ciph,str);
+
+
+    }
+
+    public void Verify(byte[] toverify, String result){
         String osName = System.getProperty("os.name");
 
         String pkcs11config = "name=CartaoCidadao" + "\n" + "library=C:/WINDOWS/system32/pteidpkcs11.dll";
@@ -41,7 +50,7 @@ public class Crypto {
             verifier = Signature.getInstance("SHA1withRSA");
             verifier.initVerify(pub_key);
             verifier.update(result.getBytes());
-            boolean ok = verifier.verify(toverify.getBytes());
+            boolean ok = verifier.verify(toverify);
 
         }catch(NoSuchAlgorithmException exception){
             exception.printStackTrace();
