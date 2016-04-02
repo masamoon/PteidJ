@@ -10,6 +10,24 @@ import pteidlib.pteid;
  */
 public class Info {
 
+
+    public Info(){
+        try {
+            pteid.Init("");
+
+            //test.TestChangeAddress();
+
+            // Don't check the integrity of the ID, address and photo (!)
+            pteid.SetSODChecking(false);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * returns object containing  all the basic info of id card owner
+     * @return PTEID_ID object containing all basic info
+     */
     public PTEID_ID getIdinfo(){
         try
         {
@@ -33,6 +51,10 @@ public class Info {
         return idinfo;
     }
 
+    /**
+     * Gets object containing all address info of id card owner
+     * @return returns PTEID_ADDR
+     */
     public PTEID_ADDR getAddrinfo(){
         try
         {
@@ -54,7 +76,10 @@ public class Info {
     }
 
 
-
+    /**
+     * Gets Full Name of id card owner
+     * @return String containing the full legal name
+     */
     public String getFullName(){
         PTEID_ID id = getIdinfo();
 

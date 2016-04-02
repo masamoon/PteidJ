@@ -142,7 +142,7 @@ public class Cartao
             int triesLeft = pteid.VerifyPIN((byte)0x83, null);
            // triesLeft = pteid.ChangePIN((byte)0x83, null, null);
 
-            // Read Certificates
+           /* // Read Certificates
             PTEID_Certif[] certs = pteid.GetCertificates();
 
 
@@ -202,7 +202,7 @@ public class Cartao
                 cert_estado.checkValidity();
                 cert_root.checkValidity();
 
-                System.out.println("certificates validated");
+                System.out.println("certificates validated");*/
 
 
 
@@ -396,7 +396,7 @@ public class Cartao
 
     /** Works only with when pteidlib is build with emulation code!!
      */
-    public void TestChangeAddress() throws Exception
+   /* public void TestChangeAddress() throws Exception
     {
         System.out.println("\n*********************************************\n");
 
@@ -501,5 +501,5 @@ public class Cartao
         System.out.println("GetLastWebErrorMessage(): returned " + msg);
 
         System.out.println("\n*********************************************\n");
-    }
+    }*/
 }
